@@ -28,7 +28,7 @@ public class FileUploadController {
 		return imageService;
 	}
 
-    @RequestMapping(method = RequestMethod.GET, value = "/")
+    @RequestMapping(method = RequestMethod.GET, value = "/images")
     public String provideUploadInfo(Model model, RedirectAttributes redirectAttributes) {
 
         List<String> imageIds = imageService.getUploadedImages();        
@@ -36,7 +36,7 @@ public class FileUploadController {
         return "uploadForm";
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/")
+    @RequestMapping(method = RequestMethod.POST, value = "/images")
     public String handleFileUpload(@RequestParam("file") MultipartFile file,
                                    RedirectAttributes redirectAttributes) {
 
@@ -49,7 +49,7 @@ public class FileUploadController {
             redirectAttributes.addFlashAttribute("message", name + " failed to upload");
         }
 
-        return "redirect:/";
+        return "redirect:/images";
     }
 
 }

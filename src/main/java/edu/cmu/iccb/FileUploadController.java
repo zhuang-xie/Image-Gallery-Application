@@ -28,7 +28,7 @@ public class FileUploadController {
 		return imageService;
 	}
 
-    @RequestMapping(method = RequestMethod.GET, value = "/images")
+    @RequestMapping(method = RequestMethod.GET, value = "/")
     public String provideUploadInfo(Model model, RedirectAttributes redirectAttributes) {
 
         List<String> imageIds = imageService.getUploadedImages();        
@@ -36,7 +36,7 @@ public class FileUploadController {
         return "uploadForm";
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/images")
+    @RequestMapping(method = RequestMethod.POST, value = "/")
     public String handleFileUpload(@RequestParam("file") MultipartFile file,
                                    RedirectAttributes redirectAttributes) {
 

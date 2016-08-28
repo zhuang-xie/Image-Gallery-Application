@@ -4,6 +4,9 @@ bin/
 
 upload-dir/
 
+.classpath
+.project
+
 src/main/resources/application.properties
 
 *.class

@@ -36,7 +36,7 @@ public class FileUploadController {
         return "uploadForm";
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/")
+    @RequestMapping(method = RequestMethod.POST, value = "/images")
     public String handleFileUpload(@RequestParam("file") MultipartFile file,
                                    RedirectAttributes redirectAttributes) {
 
@@ -49,7 +49,7 @@ public class FileUploadController {
             redirectAttributes.addFlashAttribute("message", name + " failed to upload");
         }
 
-        return "redirect:/images";
+        return "redirect:/";
     }
 
 }

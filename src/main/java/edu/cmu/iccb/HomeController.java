@@ -15,7 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import edu.cmu.iccb.services.ImageService;
 
 @Controller
-public class FileUploadController {
+public class HomeController {
 	
     private ImageService imageService;
     
@@ -28,7 +28,7 @@ public class FileUploadController {
 		return imageService;
 	}
 
-    @RequestMapping(method = RequestMethod.GET, value = "/")
+    @RequestMapping(method = RequestMethod.GET, value = "/images")
     public String provideUploadInfo(Model model, RedirectAttributes redirectAttributes) {
 
         List<String> imageIds = imageService.getUploadedImages();        
@@ -49,7 +49,12 @@ public class FileUploadController {
             redirectAttributes.addFlashAttribute("message", name + " failed to upload");
         }
 
-        return "redirect:/";
+        return "redirect:/images";
     }
 
+    
+    @RequestMapping(method = RequestMethod.GET, value = "/")
+    public String loginForm(Model model, RedirectAttributes redirectAttributes) {   
+        return "login";
+    }
 }

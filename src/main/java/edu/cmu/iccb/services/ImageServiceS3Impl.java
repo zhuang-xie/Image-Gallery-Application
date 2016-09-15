@@ -64,6 +64,11 @@ public class ImageServiceS3Impl implements ImageService {
 
 		putObjectRequest.setCannedAcl(CannedAccessControlList.PublicRead);
 
+		// Request server-side encryption.
+		ObjectMetadata objectMetadata = new ObjectMetadata();
+		objectMetadata.setSSEAlgorithm(ObjectMetadata.AES_256_SERVER_SIDE_ENCRYPTION);     
+		putObjectRequest.setMetadata(objectMetadata);
+
 		PutObjectResult putObjectResult = amazonS3Client.putObject(putObjectRequest);
 
 		IOUtils.closeQuietly(inputStream);

@@ -60,12 +60,12 @@ public class HomeController {
     
     @RequestMapping(method = RequestMethod.GET, value = "/")
     public String homePage() {    	
-        return "loginForm";
+        return "login";
     }
     
 
     @RequestMapping(method = RequestMethod.GET, value = "/github/success")
-    public String getLogin(RedirectAttributes redirectAttributes,
+    public String githubSuccess(RedirectAttributes redirectAttributes,
     					   @CookieValue(value = "JSESSIONID") String accessToken) {
     	
     	PreAuthenticatedAuthenticationToken auth = 
@@ -76,16 +76,11 @@ public class HomeController {
     	return "redirect:/images";
     }
     
-    
-    @RequestMapping(method = RequestMethod.POST, value = "/github/login")
-    public String postLogin(RedirectAttributes redirectAttributes) {
+    @RequestMapping(method = RequestMethod.GET, value = "/github/login")
+    public String githubLogin(RedirectAttributes redirectAttributes,
+    					   @CookieValue(value = "JSESSIONID") String accessToken) {
+    		
+    	// If we actuall make it to this code, we have been authenticated so redirect to images
     	return "redirect:/images";
-    }
-    
-    
-    
-    @RequestMapping("/user")
-    public Principal user(Principal principal) {
-      return principal;
     }
 }

@@ -80,7 +80,7 @@ public class HomeController {
     public String githubLogin(RedirectAttributes redirectAttributes,
     					   @CookieValue(value = "JSESSIONID") String accessToken) {
     		
-    	// If we actuall make it to this code, we have been authenticated so redirect to images
+    	// If we actually make it to this code, we have been authenticated so redirect to images
     	return "redirect:/images";
     }
 }

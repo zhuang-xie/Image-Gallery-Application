@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
 
 @SpringBootApplication
 @EnableOAuth2Sso
@@ -20,7 +21,7 @@ public class Application extends WebSecurityConfigurerAdapter {
       	.antMatcher("/**")
         .authorizeRequests()
           .antMatchers("/", "/github/success", "/css", "/js", "/fonts").permitAll()
-        .anyRequest().authenticated();
+          .anyRequest().authenticated();
     }
 }
 

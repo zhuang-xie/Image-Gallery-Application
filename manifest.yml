@@ -1,7 +1,6 @@
 ---
 applications:
 - name: image-gallery-0.1.0
-  path: ./build/libs
   host: zhuangxie-image-gallery
-  buildpack: java_buildpack
+  buildpack: https://github.com/cloudfoundry/java-buildpack.git
   path: ./build/libs/image-gallery-0.1.0.jar
